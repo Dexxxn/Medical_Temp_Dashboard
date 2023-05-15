@@ -260,7 +260,7 @@
 				<!-- User avatar button -->
 				<div class="relative" x-data="{ open: false }">
 					<button @click="open=!open; $nexttick(()> { if(open){ $refs.userMenu.focus() } })" type="button" aria-haspopup="true" :aria-expanded="open ? 'true' : 'false'" class="transition-opacity duration-200 rounded-full dark:opacity-75 dark:hover:opacity-100 focus:outline-none focus:ring dark:focus:opacity-100" > <span class="sr-only">User menu</span>
-					<img class="w-10 h-10 rounded-full" src="build/images/avatar.jpg" alt="Ahmed Kamel"/>
+					<img class="w-10 h-10 rounded-full" src="/resources/image/avatar.jpg" alt="Ahmed Kamel"/>
 					</button>
 					<!-- User dropdown menu -->
 					<div x-show="open" x-ref="userMenu" x-transition:enter="transition-all transform ease-out" x-transition:enter-start="translate-y-1/2 opacity-0" x-transition:enter-end="translate-y-0 opacity-100" x-transition:leave="transition-all transform ease-in" x-transition:leave-start="translate-y-0 opacity-100" x-transition:leave-end="translate-y-1/2 opacity-0" @click.away="open=false" @keydown.escape="open=false" class="absolute right-0 w-48 py-1 bg-white rounded-md shadow-lg top-12 ring-1 ring-black ring-opacity-5 dark:bg-dark focus:outline-none" tabindex="-1" role="menu" aria-orientation="vertical" aria-label="User menu">
@@ -313,7 +313,7 @@
 				<div class="relative ml-auto" x-data="{ open: false }">
 					<button @click="open=!open" type="button" aria-haspopup="true" :aria-expanded="open ? 'true' : 'false'" class="block transition-opacity duration-200 rounded-full dark:opacity-75 dark:hover:opacity-100 focus:outline-none focus:ring dark:focus:opacity-100">
 					<span class="sr-only">User menu</span>
-					<img class="w-10 h-10 rounded-full" src="build/images/avatar.jpg" alt="Ahmed Kamel"/>
+					<img class="w-10 h-10 rounded-full" src="/resources/image/avatar.jpg" alt="Ahmed Kamel"/>
 					</button>
 					<!-- User dropdown menu -->
 					<div x-show="open" x-transition:enter="transition-all transform ease-out" x-transition:enter-start="translate-y-1/2 opacity-0" x-transition:enter-end="translate-y-0 opacity-100" x-transition:leave="transition-all transform ease-in" x-transition:leave-start="translate-y-0 opacity-100" x-transition:leave-end="translate-y-1/2 opacity-0" @click.away="open=false" class="absolute right-0 w-48 py-1 origin-top-right bg-white rounded-md shadow-lg top-12 ring-1 ring-black ring-opacity-5 dark:bg-dark" role="menu" aria-orientation="vertical" aria-label="User menu">
@@ -833,7 +833,7 @@
 					<div class="flex px-4 space-x-4">
 						<div class="relative flex-shrink-0">
 							<span class="relative z-10 inline-block overflow-visible rounded-ful">
-							<img class="object-cover rounded-full w-9 h-9" src="build/images/avatar.jpg" alt="Ahmed kamel"/>
+							<img class="object-cover rounded-full w-9 h-9" src="/resources/image/avatar.jpg" alt="Ahmed kamel"/>
 							</span>
 							<div class="absolute h-24 p-px -mt-3 -ml-px bg-primary-50 left-1/2 dark:bg-primary-darker">
 							</div>
@@ -851,7 +851,7 @@
 					<div class="flex px-4 space-x-4">
 						<div class="relative flex-shrink-0">
 							<span class="relative z-10 inline-block overflow-visible rounded-ful">
-							<img class="object-cover rounded-full w-9 h-9" src="build/images/avatar-1.jpg" alt="Ahmed kamel"/>
+							<img class="object-cover rounded-full w-9 h-9" src="/resources/image/avatar-1.jpg" alt="Ahmed kamel"/>
 							</span>
 							<div class="absolute h-24 p-px -mt-3 -ml-px bg-primary-50 left-1/2 dark:bg-primary-darker">
 							</div>
@@ -869,7 +869,7 @@
 					<div class="flex px-4 space-x-4">
 						<div class="relative flex-shrink-0">
 							<span class="relative z-10 inline-block overflow-visible rounded-ful">
-							<img class="object-cover rounded-full w-9 h-9" src="build/images/avatar.jpg" alt="Ahmed kamel"/>
+							<img class="object-cover rounded-full w-9 h-9" src="/resources/image/avatar.jpg" alt="Ahmed kamel"/>
 							</span>
 							<div class="absolute h-24 p-px -mt-3 -ml-px bg-primary-50 left-1/2 dark:bg-primary-darker">
 							</div>
@@ -888,7 +888,7 @@
 					<div class="flex px-4 space-x-4">
 						<div class="relative flex-shrink-0">
 							<span class="relative z-10 inline-block overflow-visible rounded-ful">
-							<img class="object-cover rounded-full w-9 h-9" src="build/images/avatar.jpg" alt="Ahmed kamel"/>
+							<img class="object-cover rounded-full w-9 h-9" src="/resources/image/avatar.jpg" alt="Ahmed kamel"/>
 							</span>
 							<div class="absolute h-24 p-px -mt-3 -ml-px bg-primary-50 left-1/2 dark:bg-primary-darker">
 							</div>
@@ -938,7 +938,7 @@
 				<h3 class="py-2 text-sm font-semibold text-gray-600 dark:text-light">History</h3>
 				<a href="#" class="flex space-x-4">
 				<div class="flex-shrink-0">
-					<img class="w-10 h-10 rounded-lg" src="build/images/cover.jpg" alt="Post cover"/>
+					<img class="w-10 h-10 rounded-lg" src="/resources/image/cover.jpg" alt="Post cover"/>
 				</div>
 				<div class="flex-1 max-w-xs overflow-hidden">
 					<h4 class="text-sm font-semibold text-gray-600 dark:text-light">Header</h4>
@@ -950,7 +950,7 @@
 				</a>
 				<a href="#" class="flex space-x-4">
 				<div class="flex-shrink-0">
-					<img class="w-10 h-10 rounded-lg" src="build/images/avatar.jpg" alt="Ahmed Kamel"/>
+					<img class="w-10 h-10 rounded-lg" src="/resources/image/avatar.jpg" alt="Ahmed Kamel"/>
 				</div>
 				<div class="flex-1 max-w-xs overflow-hidden">
 					<h4 class="text-sm font-semibold text-gray-600 dark:text-light">Ahmed Kamel</h4>
@@ -962,7 +962,7 @@
 				</a>
 				<a href="#" class="flex space-x-4">
 				<div class="flex-shrink-0">
-					<img class="w-10 h-10 rounded-lg" src="build/images/cover-2.jpg" alt="K-WD Dashboard"/>
+					<img class="w-10 h-10 rounded-lg" src="/resources/image/cover-2.jpg" alt="K-WD Dashboard"/>
 				</div>
 				<div class="flex-1 max-w-xs overflow-hidden">
 					<h4 class="text-sm font-semibold text-gray-600 dark:text-light">K-WD Dashboard</h4>
@@ -975,7 +975,7 @@
 				<template x-for="i in 10" x-key="i">
 				<a href="#" class="flex space-x-4">
 				<div class="flex-shrink-0">
-					<img class="w-10 h-10 rounded-lg" src="build/images/cover-3.jpg" alt="K-WD Dashboard"/>
+					<img class="w-10 h-10 rounded-lg" src="/resources/image/cover-3.jpg" alt="K-WD Dashboard"/>
 				</div>
 				<div class="flex-1 max-w-xs overflow-hidden">
 					<h4 class="text-sm font-semibold text-gray-600 dark:text-light">K-WD Dashboard</h4>

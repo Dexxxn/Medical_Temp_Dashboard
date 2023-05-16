@@ -13,6 +13,7 @@
 	<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://kit.fontawesome.com/0f537ad086.js" crossorigin="anonymous"></script>
+	<script src="/resources/js/weather.js" type="text/javascript"></script>
 </head>
 <body>
 <div x-data="setup()" x-init="$refs.loading.classList.add('hidden'); setColors(color);" :class="{ 'dark': isDark}">
@@ -129,6 +130,7 @@
 				<a href="https://github.com/Dexxxn/Medical_Temp_Dashboard" target="_blank" class="px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark">
 				View on github </a>
 			</div>
+			
 			<!-- Content -->
 			<div class="mt-2">
 				<!-- State cards -->
@@ -183,7 +185,16 @@
 						<div>
 							<h6 class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light">
 							날씨 API </h6>
-							<span class="text-xl font-semibold">20,516</span>
+							<span class="text-xl font-semibold">				
+							<!-- 날씨 -->				
+									<!-- <div class="weather_API"> -->
+										<div class="CurrIcon"></div>
+										<div class="City"></div>
+										<div class="CurrTemp">현재:</div>
+										<div class="LowTemp">최저:</div>
+										<div class="HighTemp">최고:</div>
+											
+									<!-- </div> --></span>
 							<span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
 							+3.1% </span>
 						</div>

@@ -781,6 +781,7 @@ video {
 
 .dark .dark\:bg-primary-lighter {
   background-color: var(--color-primary-lighter);
+  background-color: var(--color-primary-lighter);
 }
 
 .dark .dark\:bg-primary-dark {

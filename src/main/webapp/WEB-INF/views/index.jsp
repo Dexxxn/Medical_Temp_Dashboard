@@ -292,7 +292,7 @@
 				K-WD &copy; 2021
 			</div>
 			<div>
-				 Made by <a href="https://github.com/Kamona-WD" target="_blank" class="text-blue-500 hover:underline">Ahmed Kamel</a>
+				 Made by <a href="https://github.com/Dexxxn/Medical_Temp_Dashboard" target="_blank" class="text-blue-500 hover:underline">Team KSH</a>
 			</div>
 			</footer>
 		</div>

@@ -119,57 +119,59 @@ const doughnutChart = new Chart(document.getElementById('doughnutChart'), {
   },
 })
 
+// 온도 변화 그래프
 const activeUsersChart = new Chart(document.getElementById('activeUsersChart'), {
-  type: 'bar',
-  data: {
-    labels: [...randomData(), ...randomData()],
-    datasets: [
-      {
-        data: [...randomData(), ...randomData()],
-        backgroundColor: colors.primary,
-        borderWidth: 0,
-        categoryPercentage: 1,
-      },
-    ],
-  },
-  options: {
-    scales: {
-      yAxes: [
-        {
-          display: false,
-          gridLines: false,
-        },
-      ],
-      xAxes: [
-        {
-          display: false,
-          gridLines: false,
-        },
-      ],
-      ticks: {
-        padding: 10,
-      },
-    },
-    cornerRadius: 2,
-    maintainAspectRatio: false,
-    legend: {
-      display: false,
-    },
-    tooltips: {
-      prefix: 'Users',
-      bodySpacing: 4,
-      footerSpacing: 4,
-      hasIndicator: true,
-      mode: 'index',
-      intersect: true,
-    },
-    hover: {
-      mode: 'nearest',
-      intersect: true,
-    },
-  },
-})
+	  type: 'line',
+	  data: {
+	    labels: [...randomData(), ...randomData()],
+	    datasets: [
+	      {
+	        data: [...randomData(), ...randomData()],
+	        backgroundColor: colors.primary,
+	        borderWidth: 0,
+	        categoryPercentage: 1,
+	      },
+	    ],
+	  },
+	  options: {
+	    scales: {
+	      yAxes: [
+	        {
+	          display: false,
+	          gridLines: false,
+	        },
+	      ],
+	      xAxes: [
+	        {
+	          display: false,
+	          gridLines: false,
+	        },
+	      ],
+	      ticks: {
+	        padding: 10,
+	      },
+	    },
+	    cornerRadius: 2,
+	    maintainAspectRatio: false,
+	    legend: {
+	      display: false,
+	    },
+	    tooltips: {
+	      prefix: 'Users',
+	      bodySpacing: 4,
+	      footerSpacing: 4,
+	      hasIndicator: true,
+	      mode: 'index',
+	      intersect: true,
+	    },
+	    hover: {
+	      mode: 'nearest',
+	      intersect: true,
+	    },
+	  },
+	})
 
+// 라인 차트
 const lineChart = new Chart(document.getElementById('lineChart'), {
   type: 'line',
   data: {

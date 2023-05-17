@@ -1,4 +1,4 @@
-/*package com.ksh.service;
+package com.ksh.service;
 
 import java.util.ArrayList;
 
@@ -9,13 +9,12 @@ import com.ksh.mapper.DashboardMapper;
 import com.ksh.model.DashboardVO;
 
 @Service
-public class DashboardServiceImpl {
+public class DashboardServiceImpl implements DashboardService{
 
 	@Autowired
 	DashboardMapper dm;
 	
-	public ArrayList<DashboardVO> list(DashboardVO dashboard) {
-		return dm.list(dashboard);
+	public ArrayList<DashboardVO> list() {
+		return dm.list();
 	}
 }
-*/

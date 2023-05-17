@@ -1,11 +1,11 @@
-/*package com.ksh.service;
+package com.ksh.service;
 
 import java.util.ArrayList;
 
 import com.ksh.model.DashboardVO;
 
 public interface DashboardService {
-
-	public ArrayList<DashboardVO> list(DashboardVO dashboard);
+	
+	// 대시보드 리스트
+	public ArrayList<DashboardVO> list();
 }
-*/

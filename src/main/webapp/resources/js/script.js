@@ -119,119 +119,196 @@ const doughnutChart = new Chart(document.getElementById('doughnutChart'), {
   },
 })
 
-// 온도 변화 그래프
-const activeUsersChart = new Chart(document.getElementById('activeUsersChart'), {
-	  type: 'line',
-	  data: {
-	    labels: [...randomData(), ...randomData()],
-	    datasets: [
-	      {
-	        data: [...randomData(), ...randomData()],
-	        backgroundColor: colors.primary,
-	        borderWidth: 0,
-	        categoryPercentage: 1,
-	      },
-	    ],
-	  },
-	  options: {
-	    scales: {
-	      yAxes: [
-	        {
-	          display: false,
-	          gridLines: false,
-	        },
-	      ],
-	      xAxes: [
-	        {
-	          display: false,
-	          gridLines: false,
-	        },
-	      ],
-	      ticks: {
-	        padding: 10,
-	      },
-	    },
-	    cornerRadius: 2,
-	    maintainAspectRatio: false,
-	    legend: {
-	      display: false,
-	    },
-	    tooltips: {
-	      prefix: 'Users',
-	      bodySpacing: 4,
-	      footerSpacing: 4,
-	      hasIndicator: true,
-	      mode: 'index',
-	      intersect: true,
-	    },
-	    hover: {
-	      mode: 'nearest',
-	      intersect: true,
-	    },
-	  },
-	})
+//온도 변화 그래프
+document.addEventListener('DOMContentLoaded', function() {
+	  $(function () {
+	    var request = $.ajax({
+	      url: "/dashboardList",
+	      method: "GET",
+	      dataType: "json"
+	    });
 
-// 라인 차트
-const lineChart = new Chart(document.getElementById('lineChart'), {
-  type: 'line',
-  data: {
-    labels: months,
-    datasets: [
-      {
-        data: randomData(),
-        fill: false,
-        borderColor: colors.primary,
-        borderWidth: 2,
-        pointRadius: 0,
-        pointHoverRadius: 0,
-      },
-    ],
-  },
-  options: {
-    responsive: true,
-    scales: {
-      yAxes: [
-        {
-          gridLines: false,
-          ticks: {
-            beginAtZero: false,
-            stepSize: 50,
-            fontSize: 12,
-            fontColor: '#97a4af',
-            fontFamily: 'Open Sans, sans-serif',
-            padding: 20,
+	    request.done(function(data) {
+	      console.log(data); // log 로 데이터 찍어주기.
+
+	      const labels = data.map(item => item.v_dateTime);
+	      const values = data.map(item => item.v_temperature);
+
+	      const activeUsersChart = new Chart(document.getElementById('activeUsersChart'), {
+	        type: 'line',
+	        data: {
+	          labels: [],
+	          datasets: [
+	            {
+	              data: [],
+	              backgroundColor: colors.primary,
+	              borderWidth: 0,
+	              categoryPercentage: 1,
+	            },
+	          ],
+	        },
+	        options: {
+	          scales: {
+	            yAxes: [
+	              {
+	                display: false,
+	                gridLines: false,
+	              },
+	            ],
+	            xAxes: [
+	              {
+	                display: false,
+	                gridLines: false,
+	              },
+	            ],
+	            ticks: {
+	              padding: 10,
+	            },
+	          },
+	          cornerRadius: 2,
+	          maintainAspectRatio: false,
+	          legend: {
+	            display: false,
+	          },
+	          tooltips: {
+	            prefix: '온도',
+	            bodySpacing: 4,
+	            footerSpacing: 4,
+	            hasIndicator: true,
+	            mode: 'index',
+	            intersect: true,
+	          },
+	          hover: {
+	            mode: 'nearest',
+	            intersect: true,
+	          },
+	        },
+	      });
+
+	      const dataLength = 10; // 최대 10개의 데이터만 유지
+
+	      const showNextData = (currentIndex) => {
+	        if (currentIndex < data.length) {
+	          const newData = data[currentIndex];
+	          activeUsersChart.data.labels.push(newData.v_dateTime);
+	          activeUsersChart.data.datasets[0].data.push(newData.v_temperature);
+
+	          if (activeUsersChart.data.labels.length > dataLength) {
+	            // 최대 데이터 개수를 유지하기 위해 가장 오래된 데이터 제거
+	            activeUsersChart.data.labels.shift();
+	            activeUsersChart.data.datasets[0].data.shift();
+	          }
+
+	          activeUsersChart.update();
+
+	          const tempCount = document.getElementById('tempCount');
+	          tempCount.innerText = `${newData.v_temperature}`; // 실시간 온도를 표시
+
+	          setTimeout(() => {
+	            showNextData(currentIndex + 1);
+	          }, 1000); // 1초마다 다음 데이터 보여주기
+	        }
+	      };
+
+	      showNextData(0);
+
+	    });
+
+	    request.fail(function(jqXHR, textStatus) {
+	      console.log("Request failed: " + textStatus);
+	    });
+	  });
+	});
+
+/*//온도 변화 그래프
+document.addEventListener('DOMContentLoaded', function() {
+  $(function () {
+    var request = $.ajax({
+      url: "/dashboardList",
+      method: "GET",
+      dataType: "json"
+    });
+
+    request.done(function(data) {
+    	console.log(data); // log 로 데이터 찍어주기.
+    	
+    	const labels = data.map(item => item.v_dateTime);
+        const values = data.map(item => item.v_temperature);
+    	
+    	const activeUsersChart = new Chart(document.getElementById('activeUsersChart'), {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [
+            {
+              data: values,
+              backgroundColor: colors.primary,
+              borderWidth: 0,
+              categoryPercentage: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            yAxes: [
+              {
+                display: false,
+                gridLines: false,
+              },
+            ],
+            xAxes: [
+              {
+                display: false,
+                gridLines: false,
+              },
+            ],
+            ticks: {
+              padding: 10,
+            },
+          },
+          cornerRadius: 2,
+          maintainAspectRatio: false,
+          legend: {
+            display: false,
+          },
+          tooltips: {
+            prefix: '온도',
+            bodySpacing: 4,
+            footerSpacing: 4,
+            hasIndicator: true,
+            mode: 'index',
+            intersect: true,
+          },
+          hover: {
+            mode: 'nearest',
+            intersect: true,
           },
         },
-      ],
-      xAxes: [
-        {
-          gridLines: false,
-        },
-      ],
-    },
-    maintainAspectRatio: false,
-    legend: {
-      display: false,
-    },
-    tooltips: {
-      hasIndicator: true,
-      intersect: false,
-    },
-  },
-})
+      });
+    	
+    request.fail(function(jqXHR, textStatus) {
+      console.log("Request failed: " + textStatus);
+    });
+  });
+});*/
 
+/*
+// 실시간 온도 찍어주기
 let randomUserCount = 0
 
-const usersCount = document.getElementById('usersCount')
+const tempCount = document.getElementById('tempCount')
 
-const fakeUsersCount = () => {
-  randomUserCount = random()
-  activeUsersChart.data.datasets[0].data.push(randomUserCount)
-  activeUsersChart.data.datasets[0].data.splice(0, 1)
-  activeUsersChart.update()
-  usersCount.innerText = randomUserCount
+const fakeTempCount = () => {
+  randomTempCount = random()
+  activeTempCount.data.datasets[0].data.push(randomUserCount)
+  activeTempCount.data.datasets[0].data.splice(0, 1)
+  activeTempCount.update()
+  tempCount.innerText = randomTempCount
 }
 
 setInterval(() => {
   fakeUsersCount()
 }, 1000)
+*/
+
+//라인 차트

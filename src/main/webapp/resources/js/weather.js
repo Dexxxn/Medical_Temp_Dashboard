@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	$.ajax({
-		url: 'http://api.openweathermap.org/data/2.5/weather?q=Ulsan&APPID=f38f26e7652ddacc9c5e888569cc5b6a',
+		url: 'http://api.openweathermap.org/data/2.5/weather?q=Seoul&APPID=f38f26e7652ddacc9c5e888569cc5b6a',
 		dataType: 'json',
 		type: 'GET',
 		success: function(data){

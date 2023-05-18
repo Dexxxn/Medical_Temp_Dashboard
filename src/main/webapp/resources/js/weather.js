@@ -10,9 +10,9 @@ $(document).ready(function(){
 			var $LowTemp = Math.floor(data.main.temp_min) +'℃';
 			var $HighTemp = Math.floor(data.main.temp_max) +'℃';*/
 			
-			var $Temp = (data.main.temp  - 273.15) +'℃';
-			var $LowTemp = (data.main.temp_min - 273.15) +'℃';
-			var $HighTemp = (data.main.temp_max - 273.15) +'℃';
+			var $Temp = (data.main.temp  - 273.15).toFixed(1); +'℃';
+			var $LowTemp = (data.main.temp_min - 273.15).toFixed(1); +'℃';
+			var $HighTemp = (data.main.temp_max - 273.15).toFixed(1); +'℃';
 			
 			
 			/*var $Temp = k2c(data["main"]["temp"]) +'℃';

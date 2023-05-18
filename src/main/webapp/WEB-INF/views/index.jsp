@@ -127,6 +127,14 @@
 			<!-- Content header -->
 			<div class="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
 				<h1 class="text-2xl font-semibold">아스트라제네카 냉장고</h1>
+<!-- 						<div class="flex items-center">
+								<button class="relative focus:outline-none" @click="isOn=!isOn; $parent.updateDoughnutChart(isOn)">
+								<div class="w-12 h-6 transition rounded-full outline-none bg-primary-100 dark:bg-primary-darker">
+								</div>
+								<div class="absolute top-0 left-0 inline-flex items-center justify-center w-6 h-6 transition-all duration-200 ease-in-out transform scale-110 rounded-full shadow-sm translate-x-0 bg-white dark:bg-primary-100" :class="{ 'translate-x-0 bg-white dark:bg-primary-100': !isOn, 'translate-x-6 bg-primary-light dark:bg-primary': isOn }">
+								</div>
+								</button>
+							</div> -->
 				<a href="https://github.com/Dexxxn/Medical_Temp_Dashboard" target="_blank" class="px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark">
 				View on github </a>
 			</div>
@@ -188,13 +196,13 @@
 							<span class="text-xl font-semibold">				
 							<!-- 날씨 -->				
 									<!-- <div class="weather_API"> -->
-										<div class="CurrIcon"></div>
-										<div class="City"></div>
-										<div class="CurrTemp">현재:</div>
-										<div class="LowTemp">최저:</div>
-										<div class="HighTemp">최고:</div>
-											
-									<!-- </div> --></span>
+										<span class="CurrIcon"></span>
+										<span class="City"></span><br>
+										<span class="CurrTemp">현재:</span>
+										<span class="LowTemp">최저:</span>
+										<span class="HighTemp">최고:</span>
+									<!-- </div> -->
+							</span>
 							<span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
 							+3.1% </span>
 						</div>
@@ -219,7 +227,7 @@
 						</p>
 						<!-- Chart -->
 						<div class="relative p-4">
-							<canvas id="activeUsersChart"></canvas>
+							<canvas id="tempCountChart"></canvas>
 						</div>
 					</div>
 					<!-- Line chart card -->
@@ -228,17 +236,58 @@
 						<div class="flex items-center justify-between p-4 border-b dark:border-primary">
 							<h4 class="text-lg font-semibold text-gray-500 dark:text-light">실시간 온도(TABLE)</h4>
 							<div class="flex items-center">
-								<button class="relative focus:outline-none" x-cloak @click="isOn=!isOn; $parent.updateLineChart()">
-								<div class="w-12 h-6 transition rounded-full outline-none bg-primary-100 dark:bg-primary-darker">
-								</div>
-								<div class="absolute top-0 left-0 inline-flex items-center justify-center w-6 h-6 transition-all duration-200 ease-in-out transform scale-110 rounded-full shadow-sm" :class="{ 'translate-x-0 bg-white dark:bg-primary-100': !isOn, 'translate-x-6 bg-primary-light dark:bg-primary': isOn }">
-								</div>
-								</button>
+								<i class="fa-solid fa-rotate-right fa-lg"></i>
 							</div>
 						</div>
-						<!-- Chart -->
-						<div class="relative p-4 h-72">
-							<canvas id="lineChart"></canvas>
+						<!-- 테이블 -->
+						<div style="margin: 20px; height: 250px;">
+							<div class="tbl-header">
+							  <table>
+							    <thead>
+							      <tr>
+							        <th>측정 시간</th>
+							        <th>측정 데이터</th>
+							        <th>측정 결과</th>
+							      </tr>
+							    </thead>
+							  </table>
+							</div>
+							<div class="tbl-content">
+							  <table>
+							    <tbody>
+							      <tr>
+							        <td>2023-05-18 16:08:30</td>
+							        <td>아스트라제네카</td>
+							        <td>4.5°C</td>
+							      </tr>
+							      <tr>
+							        <td>2023-05-18 17:08:30</td>
+							        <td>아스트라제네카</td>
+							        <td>4.7°C</td>
+							      </tr>
+							      <tr>
+							        <td>2023-05-18 18:08:30</td>
+							        <td>아스트라제네카</td>
+							        <td>5.0°C</td>
+							      </tr>
+							      <tr>
+							        <td>2023-05-18 18:08:30</td>
+							        <td>아스트라제네카</td>
+							        <td>5.0°C</td>
+							      </tr>
+							      							      <tr>
+							        <td>2023-05-18 18:08:30</td>
+							        <td>아스트라제네카</td>
+							        <td>5.0°C</td>
+							      </tr>
+							      							      <tr>
+							        <td>2023-05-18 18:08:30</td>
+							        <td>아스트라제네카</td>
+							        <td>5.0°C</td>
+							      </tr>
+							    </tbody>
+							  </table>
+							</div>
 						</div>
 					</div>
 				</div>

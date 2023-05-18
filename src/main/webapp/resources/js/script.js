@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	      const labels = data.map(item => item.v_dateTime);
 	      const values = data.map(item => item.v_temperature);
 
-	      const activeUsersChart = new Chart(document.getElementById('activeUsersChart'), {
+	      const tempCountChart = new Chart(document.getElementById('tempCountChart'), {
 	        type: 'line',
 	        data: {
 	          labels: [],
@@ -190,16 +190,16 @@ document.addEventListener('DOMContentLoaded', function() {
 	      const showNextData = (currentIndex) => {
 	        if (currentIndex < data.length) {
 	          const newData = data[currentIndex];
-	          activeUsersChart.data.labels.push(newData.v_dateTime);
-	          activeUsersChart.data.datasets[0].data.push(newData.v_temperature);
+	          tempCountChart.data.labels.push(newData.v_dateTime);
+	          tempCountChart.data.datasets[0].data.push(newData.v_temperature);
 
-	          if (activeUsersChart.data.labels.length > dataLength) {
+	          if (tempCountChart.data.labels.length > dataLength) {
 	            // 최대 데이터 개수를 유지하기 위해 가장 오래된 데이터 제거
-	            activeUsersChart.data.labels.shift();
-	            activeUsersChart.data.datasets[0].data.shift();
+	            tempCountChart.data.labels.shift();
+	            tempCountChart.data.datasets[0].data.shift();
 	          }
 
-	          activeUsersChart.update();
+	          tempCountChart.update();
 
 	          const tempCount = document.getElementById('tempCount');
 	          tempCount.innerText = `${newData.v_temperature}`; // 실시간 온도를 표시
@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', function() {
     	const labels = data.map(item => item.v_dateTime);
         const values = data.map(item => item.v_temperature);
     	
-    	const activeUsersChart = new Chart(document.getElementById('activeUsersChart'), {
+    	const tempCountChart = new Chart(document.getElementById('tempCountChart'), {
         type: 'line',
         data: {
           labels: labels,
@@ -311,4 +311,9 @@ setInterval(() => {
 }, 1000)
 */
 
-//라인 차트
+// 테이블 스크롤
+//'.tbl-content' consumed little space for vertical scrollbar, scrollbar width depend on browser/os/platfrom. Here calculate the scollbar width .
+$(window).on("load resize ", function() {
+  var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+  $('.tbl-header').css({'padding-right':scrollWidth});
+}).resize();

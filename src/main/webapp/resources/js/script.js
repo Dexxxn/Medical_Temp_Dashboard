@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	        }
 	      };
 
-	      showNextData(0);
+	      showNextData(0); 
 
 	    });
 

@@ -8,8 +8,11 @@
 	
 	<select id="list" resultType="com.ksh.model.DashboardVO">
 		SELECT * 
-		FROM medical_temp_dashboard.vaccine_refrigerator
+		<!-- FROM medical_temp_dashboard.vaccine_refrigerator -->
+		FROM vaccine_refr;
 	</select>
+	
+	<!-- 화이자 냉장기기 측정값도 select해오기  -->
 	
 </mapper>  
   

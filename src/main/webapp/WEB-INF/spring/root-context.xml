@@ -12,7 +12,7 @@
 	
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-		<property name="jdbcUrl" value="jdbc:mysql://192.168.30.215:3306/medical_temp_dashboard?serverTimezone=Asia/Seoul"></property>
+		<property name="jdbcUrl" value="jdbc:mysql://192.168.30.4:3306/raspi_db_medical?serverTimezone=Asia/Seoul"></property>
 		<property name="username" value="kiwon"></property>
 		<property name="password" value="qwer1234!"></property>
 	</bean>

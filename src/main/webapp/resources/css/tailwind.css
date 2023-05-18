@@ -1759,7 +1759,7 @@ video {
 }
 
 .col-span-1 {
-  grid-column: span 1 / span 1;
+  grid-column: span 3 / span 1;
 }
 
 .col-span-2 {
@@ -2060,7 +2060,7 @@ video {
   }
 
   .lg\:grid-cols-3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 }
 

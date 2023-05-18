@@ -211,7 +211,7 @@
 					<div class="col-span-1 bg-white rounded-md dark:bg-darker">
 						<!-- Card header -->
 						<div class="p-4 border-b dark:border-primary">
-							<h4 class="text-lg font-semibold text-gray-500 dark:text-light">실시간 온도</h4>
+							<h4 class="text-lg font-semibold text-gray-500 dark:text-light">실시간 온도(CHART)</h4>
 						</div>
 						<p class="p-4">
 							<span class="text-2xl font-medium text-gray-500 dark:text-light" id="tempCount">0</span>
@@ -226,7 +226,7 @@
 					<div class="col-span-2 bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
 						<!-- Card header -->
 						<div class="flex items-center justify-between p-4 border-b dark:border-primary">
-							<h4 class="text-lg font-semibold text-gray-500 dark:text-light">Line Chart</h4>
+							<h4 class="text-lg font-semibold text-gray-500 dark:text-light">실시간 온도(TABLE)</h4>
 							<div class="flex items-center">
 								<button class="relative focus:outline-none" x-cloak @click="isOn=!isOn; $parent.updateLineChart()">
 								<div class="w-12 h-6 transition rounded-full outline-none bg-primary-100 dark:bg-primary-darker">

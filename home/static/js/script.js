@@ -3,11 +3,11 @@ const cssColors = (color) => {
 }
 
 const getColor = () => {
-  return window.localStorage.getItem('color') ?? 'cyan'
+  return window.localStorage.getItem('color') ?? 'primary'
 }
 
 const colors = {
-  primary: cssColors(`--color-${getColor()}`),
+  primary: cssColors(`--color-primary`),
   primaryLight: cssColors(`--color-${getColor()}-light`),
   primaryLighter: cssColors(`--color-${getColor()}-lighter`),
   primaryDark: cssColors(`--color-${getColor()}-dark`),
@@ -97,8 +97,6 @@ function updateChart2() {
   setInterval(updateChart2, 5000);
 
 
-
-
 // 온도 변화 테이블
 function updateTable() {
 	// 서버에 센서 데이터 요청을 보냄
@@ -128,6 +126,23 @@ function updateTable() {
   
   // 일정한 간격으로 updateTable 함수를 호출하는 타이머를 설정 (5초마다)
   setInterval(updateTable, 5000);
+
+
+
+  // 평균온도 계산
+/* function updateTable() {
+	// 서버에 센서 데이터 요청을 보냄
+	fetch('http://192.168.30.4:5000/update_sensor_data')
+	  .then(response => response.json())
+	  .then(data => {
+		// 측정값에서 -23을 해야 적정 보관 온도
+	const temperatures = [(data.temp - 23).toFixed(1)];
+  
+  const Average_temp = document.getElementById('Average_temp');
+ 
+
+});
+} */
 
 
 // 테이블 스크롤

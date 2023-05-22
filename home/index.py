@@ -39,15 +39,36 @@ def update_sensor_data():
 def home1():
     return render_template('index.html')
 
+
 # 루트 경로 처리
 @app.route('/blood')
 def home2():
-    return render_template('blood.html')
+     # 온도 데이터 가져오기
+    query = "SELECT v_temperature FROM {}".format(mysql_table)
+    cursor.execute(query)
+    temperatures = [row[0] for row in cursor.fetchall()]
+
+    # 온도 평균 계산
+    average_temperature = sum(temperatures) / len(temperatures)
+    average_temp_rounded = round(average_temperature, 1)  # 소수점 첫 번째 자리까지 반올림
+
+    return render_template('blood.html', blood_average_temp=average_temp_rounded)
+
 
 # 루트 경로 처리
 @app.route('/vaccine')
 def home3():
-    return render_template('vaccine.html')
+    # 온도 데이터 가져오기
+    query = "SELECT v_temperature FROM {}".format(mysql_table)
+    cursor.execute(query)
+    temperatures = [row[0] for row in cursor.fetchall()]
+
+    # 온도 평균 계산
+    average_temperature = sum(temperatures) / len(temperatures)
+    average_temp_rounded = round(average_temperature, 1)  # 소수점 첫 번째 자리까지 반올림
+
+    return render_template('vaccine.html', average_temp=average_temp_rounded)
+    
 
 # 데이터 측정 및 저장 함수
 def measure_and_store_data():

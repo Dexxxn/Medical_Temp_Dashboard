@@ -3,13 +3,13 @@
   --dark: #152e4d;
   --darker: #12263f;
   /*  */
-  --color-primary: var(--color-violet);
-  --color-primary-50: var(--color-violet-50);
-  --color-primary-100: var(--color-violet-100);
-  --color-primary-light: var(--color-violet-light);
-  --color-primary-lighter: var(--color-violet-lighter);
-  --color-primary-dark: var(--color-violet-dark);
-  --color-primary-darker: var(--color-violet-darker);
+  --color-primary: var(--color-olive);
+  --color-primary-50: var(--color-olive-50);
+  --color-primary-100: var(--color-olive-100);
+  --color-primary-light: var(--color-olive-light);
+  --color-primary-lighter: var(--color-olive-lighter);
+  --color-primary-dark: var(--color-olive-dark);
+  --color-primary-darker: var(--color-olive-darker);
   /*  */
   --color-green: #16a34a;
   --color-green-50: #f0fdf4;
@@ -18,6 +18,14 @@
   --color-green-lighter: #4ade80;
   --color-green-dark: #15803d;
   --color-green-darker: #166534;
+  /*  */
+  --color-olive: #8DB72A;
+  --color-olive-50: #f0fdf4;
+  --color-olive-100: #ecf4d9;
+  --color-olive-light: #ABF200;
+  --color-olive-lighter: #C3ED60;
+  --color-olive-dark: #699306;
+  --color-olive-darker: #335D00;
   /*  */
   --color-blue: #2563eb;
   --color-blue-50: #eff6ff;
@@ -2107,7 +2115,7 @@ table{
 	table-layout: fixed;
 }
 .tbl-header{
-	background-color: #0891b2;
+	background-color: #8DB72A;
 }
 .tbl-content{
   margin-top: 0px;
@@ -2132,6 +2140,7 @@ td{
   border-bottom: solid 1px rgba(255,255,255,0.1);
 }
 
+
 /* for custom scrollbar for webkit browser*/
 ::-webkit-scrollbar {
     width: 6px;
@@ -2142,3 +2151,5 @@ td{
 ::-webkit-scrollbar-thumb {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
 }
+
+ #blood_average_temp{margin-left: 970px;}

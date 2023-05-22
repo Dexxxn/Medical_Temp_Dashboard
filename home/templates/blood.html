@@ -35,8 +35,14 @@
 				</span>
 				</button>
 				<!-- Brand -->
-				<a href="/" class="inline-block text-2xl font-bold tracking-wider uppercase text-primary-dark dark:text-light">
-				Vaccine </a>
+				<div style="display: flex;">
+					<a href="/vaccine" class="inline-block text-2xl font-bold tracking-wider uppercase" style="margin-right: 20px;">
+						Vaccine 
+					</a>
+					<a href="/blood" class="inline-block text-2xl font-bold tracking-wider uppercase dark:text-primary-light">
+						Blood
+					</a>
+				</div>
 				<!-- Mobile sub menu button -->
 				<button @click="isMobileSubMenuOpen=!isMobileSubMenuOpen" class="p-1 transition-colors duration-200 rounded-md text-primary-lighter bg-primary-50 hover:text-primary hover:bg-primary-100 dark:hover:text-light dark:hover:bg-primary-dark dark:bg-dark md:hidden focus:outline-none focus:ring">
 				<span class="sr-only">Open sub manu</span>
@@ -124,7 +130,7 @@
 			<main>
 			<!-- Content header -->
 			<div class="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
-				<h1 class="text-2xl font-semibold">아스트라제네카 냉장고</h1>
+				<h1 class="text-2xl font-semibold">혈액 냉장고</h1>
 <!-- 						<div class="flex items-center">
 								<button class="relative focus:outline-none" @click="isOn=!isOn; $parent.updateDoughnutChart(isOn)">
 								<div class="w-12 h-6 transition rounded-full outline-none bg-primary-100 dark:bg-primary-darker">
@@ -146,9 +152,7 @@
 						<div>
 							<h6 class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light">
 							Proper Temperature </h6>
-							<span class="text-xl font-semibold">2°C ~ 8°C</span>
-							<span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
-							+4.4% </span>
+							<span class="text-xl font-semibold">1°C ~ 6°C</span>
 						</div>
 						<div>
 							<span>
@@ -221,6 +225,8 @@
 						</div>
 						<p class="p-4">
 							<span class="text-2xl font-medium text-gray-500 dark:text-light" id="tempCount">0</span>
+							<span class="text-sm font-medium text-gray-500 dark:text-primary">°C</span>
+							<span class="text-2xl font-medium text-gray-500 dark:text-light" id="blood_average_temp">{{blood_average_temp}}</span>
 							<span class="text-sm font-medium text-gray-500 dark:text-primary">°C</span>
 						</p>
 						<!-- Chart -->
@@ -376,7 +382,7 @@
 						<button @click="setColors('green')" class="w-10 h-10 rounded-full" style="background-color: var(--color-green)"></button>
 						<button @click="setColors('fuchsia')" class="w-10 h-10 rounded-full" style="background-color: var(--color-fuchsia)"></button>
 						<button @click="setColors('blue')" class="w-10 h-10 rounded-full" style="background-color: var(--color-blue)"></button>
-						<button @click="setColors('violet')" class="w-10 h-10 rounded-full" style="background-color: var(--color-violet)"></button>
+						<button @click="setColors('olive')" class="w-10 h-10 rounded-full" style="background-color: var(--color-olive)"></button>
 					</div>
 				</div>
 			</div>
@@ -403,17 +409,17 @@
           if (window.localStorage.getItem('color')) {
             return window.localStorage.getItem('color')
           }
-          return 'cyan'
+          return 'olive'
         }
         const setColors = (color) => {
           const root = document.documentElement
-          root.style.setProperty('--color-primary', `var(--color-violet)`)	// `var(--color-${color})`
-          root.style.setProperty('--color-primary-50', `var(--color-violet-50)`)
-          root.style.setProperty('--color-primary-100', `var(--color-violet-100)`)
-          root.style.setProperty('--color-primary-light', `var(--color-violet-light)`)
-          root.style.setProperty('--color-primary-lighter', `var(--color-violet-lighter)`)
-          root.style.setProperty('--color-primary-dark', `var(--color-violet-dark)`)
-          root.style.setProperty('--color-primary-darker', `var(--color-violet-darker)`)
+          root.style.setProperty('--color-primary', `var(--color-olive)`)	// `var(--color-${color})`
+          root.style.setProperty('--color-primary-50', `var(--color-olive-50)`)
+          root.style.setProperty('--color-primary-100', `var(--color-olive-100)`)
+          root.style.setProperty('--color-primary-light', `var(--color-olive-light)`)
+          root.style.setProperty('--color-primary-lighter', `var(--color-olive-lighter)`)
+          root.style.setProperty('--color-primary-dark', `var(--color-olive-dark)`)
+          root.style.setProperty('--color-primary-darker', `var(--color-olive-darker)`)
           this.selectedColor = color
           window.localStorage.setItem('color', color)
           //
@@ -466,7 +472,7 @@
             setTheme(this.isDark)
           },
           color: getColor(),
-          selectedColor: 'cyan',
+          selectedColor: 'olive',
           setColors,
           toggleSidbarMenu() {
             this.isSidebarOpen = !this.isSidebarOpen

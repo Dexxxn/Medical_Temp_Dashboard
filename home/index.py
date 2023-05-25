@@ -5,8 +5,7 @@ import mysql.connector
 from flask import Flask, render_template
 import threading
 from flask import Request
-
-
+import RPi.GPIO as GPIO
 
 # MySQL 연결 설정
 mysql_user = 'f5'
@@ -26,11 +25,33 @@ sensor = BMP.BMP085(busnum=1)
 # Flask 애플리케이션 생성
 app = Flask(__name__)
 
+# LED 설정
+led_pin = 14
+
+# 부저 설정
+BUZZER_PIN = 18
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(led_pin, GPIO.OUT)
+GPIO.setup(BUZZER_PIN, GPIO.OUT)
+buzzer_pwm = GPIO.PWM(BUZZER_PIN, 1000)
+buzzer_pwm.start(0)
+
+
+
 # 서버에 값 전달
 @app.route('/update_sensor_data')
 def update_sensor_data():
     temp = sensor.read_temperature()
     
+    # 온도가 일정 값 이상이면 부저 울리기
+    if temp >= 31.0:
+        buzzer_pwm.ChangeDutyCycle(50)  # 부저 소리 크기 조절
+        GPIO.output(led_pin, GPIO.HIGH)  # LED 켜기
+        time.sleep(0.5)  # 부저 울림 시간
+        buzzer_pwm.ChangeDutyCycle(0)  # 부저 소리 중지
+        GPIO.output(led_pin, GPIO.LOW)  # LED 끄기
+        
+
     sensor_data = {'temp': temp}
     return jsonify(sensor_data)
 

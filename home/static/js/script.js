@@ -83,6 +83,12 @@ function updateChart2() {
 		   myLineChart2.data.datasets[0].data.shift();
 		   myLineChart2.data.labels.shift();
 		 }
+		 if (data.temp > 31 || data.temp < 22) {
+			alert('warning!');
+			myLineChart2.data.datasets[0].backgroundColor = '#B70000'; // 빨간색으로 변경
+		  } else {
+			myLineChart2.data.datasets[0].backgroundColor = colors.primary; // 기본 색깔로 변경
+		  }
   
 		// 차트를 업데이트합니다.
 		myLineChart2.update();
@@ -109,9 +115,11 @@ function updateTable() {
 		// 테이블에 데이터를 추가
 		const tableBody = document.querySelector("#tempTable tbody");
 		const newRow = document.createElement("tr");
+		const item = document.getElementById("item").innerHTML;
+
 		newRow.innerHTML = `
 		  <td>${new Date().toLocaleTimeString()}</td>
-		  <td>아스트라제네카</td>
+		  <td>${item}</td>
 		  <td>${adjustedTemp}</td>
 		`;
 		tableBody.appendChild(newRow);
@@ -128,23 +136,7 @@ function updateTable() {
   setInterval(updateTable, 5000);
 
 
-
-  // 평균온도 계산
-/* function updateTable() {
-	// 서버에 센서 데이터 요청을 보냄
-	fetch('http://192.168.30.4:5000/update_sensor_data')
-	  .then(response => response.json())
-	  .then(data => {
-		// 측정값에서 -23을 해야 적정 보관 온도
-	const temperatures = [(data.temp - 23).toFixed(1)];
   
-  const Average_temp = document.getElementById('Average_temp');
- 
-
-});
-} */
-
-
 // 테이블 스크롤
 //'.tbl-content' consumed little space for vertical scrollbar, scrollbar width depend on browser/os/platfrom. Here calculate the scollbar width .
 $(window).on("load resize ", function() {
